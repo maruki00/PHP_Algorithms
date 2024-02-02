@@ -10,14 +10,14 @@ class Bubble{
     
     public final function sort(): array
     {
-        print_r($this->items);
+        
         for($i=1; $i<count($this->items); $i++){
-            $j = $i;
-            while($j>0 && $this->items[$j] < $this->items[$j-1]){
-                $tmp = $this->items[$j];
-                $this->items[$j] = $this->items[$j-1];
-                $this->items[$j-1] = $tmp;
-                $j--;
+            for($j=$i; $j>0; $j--){
+                if($this->items[$j-1] > $this->items[$j]){
+                    $tmp = $this->items[$j];
+                    $this->items[$j] = $this->items[$j-1];
+                    $this->items[$j-1] = $tmp;
+                }
             }
         }
         return $this->items;
